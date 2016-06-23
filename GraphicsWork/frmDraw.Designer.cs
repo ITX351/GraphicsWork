@@ -42,6 +42,12 @@
             this.tsbLine = new System.Windows.Forms.ToolStripButton();
             this.tsbRectangle = new System.Windows.Forms.ToolStripButton();
             this.tsbEllipse = new System.Windows.Forms.ToolStripButton();
+            this.tsbEraser = new System.Windows.Forms.ToolStripButton();
+            this.tsbColor = new System.Windows.Forms.ToolStripButton();
+            this.tslSize = new System.Windows.Forms.ToolStripLabel();
+            this.tstxtSize = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuMain.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +116,13 @@
             this.tsbPencil,
             this.tsbLine,
             this.tsbRectangle,
-            this.tsbEllipse});
+            this.tsbEllipse,
+            this.tsbEraser,
+            this.toolStripSeparator1,
+            this.tslSize,
+            this.tstxtSize,
+            this.toolStripSeparator2,
+            this.tsbColor});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(778, 25);
@@ -157,6 +169,47 @@
             this.tsbEllipse.Text = "椭圆";
             this.tsbEllipse.Click += new System.EventHandler(this.tsbEllipse_Click);
             // 
+            // tsbEraser
+            // 
+            this.tsbEraser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbEraser.Image = ((System.Drawing.Image)(resources.GetObject("tsbEraser.Image")));
+            this.tsbEraser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEraser.Name = "tsbEraser";
+            this.tsbEraser.Size = new System.Drawing.Size(36, 22);
+            this.tsbEraser.Text = "橡皮";
+            this.tsbEraser.Click += new System.EventHandler(this.tsbEraser_Click);
+            // 
+            // tsbColor
+            // 
+            this.tsbColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.tsbColor.Image = ((System.Drawing.Image)(resources.GetObject("tsbColor.Image")));
+            this.tsbColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbColor.Name = "tsbColor";
+            this.tsbColor.Size = new System.Drawing.Size(36, 22);
+            this.tsbColor.Text = "颜色";
+            // 
+            // tslSize
+            // 
+            this.tslSize.Name = "tslSize";
+            this.tslSize.Size = new System.Drawing.Size(32, 22);
+            this.tslSize.Text = "笔宽";
+            // 
+            // tstxtSize
+            // 
+            this.tstxtSize.Name = "tstxtSize";
+            this.tstxtSize.Size = new System.Drawing.Size(30, 25);
+            this.tstxtSize.Text = "1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // frmDraw
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -195,6 +248,12 @@
         private System.Windows.Forms.ToolStripButton tsbLine;
         private System.Windows.Forms.ToolStripButton tsbRectangle;
         private System.Windows.Forms.ToolStripButton tsbEllipse;
+        private System.Windows.Forms.ToolStripButton tsbEraser;
+        private System.Windows.Forms.ToolStripButton tsbColor;
+        private System.Windows.Forms.ToolStripLabel tslSize;
+        private System.Windows.Forms.ToolStripTextBox tstxtSize;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 
