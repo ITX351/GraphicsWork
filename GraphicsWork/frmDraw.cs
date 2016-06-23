@@ -42,7 +42,15 @@ namespace GraphicsWork
         private void changeColor(Color newColor)
         {
             nowColor = newColor;
-            myPen = new Pen(nowColor, getSize());
+            renewPen();
+        }
+
+        private void renewPen()
+        {
+            if (checkedTool == Tools.Eraser)
+                myPen = new Pen(this.BackColor, getSize() + 2);
+            else
+                myPen = new Pen(nowColor, getSize());
         }
 
         private void updateTitle()
@@ -76,6 +84,41 @@ namespace GraphicsWork
             _g = Graphics.FromImage(bmpImage);
             _g.Clear(this.BackColor);
 
+        }
+
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = dialog.FileName;
+                updateTitle();
+
+                bmpImage = (Bitmap)Image.FromFile(dialog.FileName);
+                Graphics g = this.CreateGraphics();
+                g.DrawImage(bmpImage, this.ClientRectangle);
+                _g = Graphics.FromImage(bmpImage);
+                _g.DrawImage(bmpImage, this.ClientRectangle);
+            }
+        }
+
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "图像(*.bmp)|*.bmp";
+            dialog.FileName = fileName;
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                bmpImage.Save(dialog.FileName);
+                fileName = dialog.FileName;
+                updateTitle();
+            }
+        }
+
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void ReloadImage()
@@ -151,13 +194,11 @@ namespace GraphicsWork
             tsbLine.CheckState = CheckState.Unchecked;
             tsbRectangle.CheckState = CheckState.Unchecked;
             tsbEllipse.CheckState = CheckState.Unchecked;
+            tsbEraser.CheckState = CheckState.Unchecked;
+
             button.CheckState = CheckState.Checked;
             checkedTool = tools;
-
-            if (tools == Tools.Eraser)
-                myPen = new Pen(this.BackColor, getSize() + 2);
-            else
-                myPen = new Pen(nowColor, getSize());
+            renewPen();
         }
 
         private void tsbPencil_Click(object sender, EventArgs e)
@@ -183,6 +224,21 @@ namespace GraphicsWork
         private void tsbEraser_Click(object sender, EventArgs e)
         {
             clearToolbar(tsbEraser, Tools.Eraser);
+        }
+
+        private void tstxtSize_TextChanged(object sender, EventArgs e)
+        {
+            renewPen();
+        }
+
+        private void tsbColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog dialog = new ColorDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                changeColor(dialog.Color);
+            }
         }
     }
 }

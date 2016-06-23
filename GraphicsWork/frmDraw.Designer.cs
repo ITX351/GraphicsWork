@@ -92,12 +92,14 @@
             this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
             this.OpenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.OpenToolStripMenuItem.Text = "打开(&O)";
+            this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // SaveAsToolStripMenuItem
             // 
             this.SaveAsToolStripMenuItem.Name = "SaveAsToolStripMenuItem";
             this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.SaveAsToolStripMenuItem.Text = "另存为(&A)";
+            this.SaveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // toolStripMenuItemLine2
             // 
@@ -109,6 +111,7 @@
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
             this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ExitToolStripMenuItem.Text = "退出(&E)";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -187,6 +190,7 @@
             this.tsbColor.Name = "tsbColor";
             this.tsbColor.Size = new System.Drawing.Size(36, 22);
             this.tsbColor.Text = "颜色";
+            this.tsbColor.Click += new System.EventHandler(this.tsbColor_Click);
             // 
             // tslSize
             // 
@@ -199,6 +203,7 @@
             this.tstxtSize.Name = "tstxtSize";
             this.tstxtSize.Size = new System.Drawing.Size(30, 25);
             this.tstxtSize.Text = "1";
+            this.tstxtSize.TextChanged += new System.EventHandler(this.tstxtSize_TextChanged);
             // 
             // toolStripSeparator1
             // 
@@ -219,7 +224,7 @@
             this.Controls.Add(this.mnuMain);
             this.MainMenuStrip = this.mnuMain;
             this.Name = "frmDraw";
-            this.Text = "Form1";
+            this.Text = "C#自制绘图";
             this.Load += new System.EventHandler(this.frmDraw_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmDraw_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmDraw_MouseMove);
