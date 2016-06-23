@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDraw));
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新建NToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.NewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemLine1 = new System.Windows.Forms.ToolStripSeparator();
             this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemLine2 = new System.Windows.Forms.ToolStripSeparator();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbPencil = new System.Windows.Forms.ToolStripButton();
@@ -59,26 +59,27 @@
             // FileToolStripMenuItem
             // 
             this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.新建NToolStripMenuItem,
-            this.toolStripMenuItem1,
+            this.NewToolStripMenuItem,
+            this.toolStripMenuItemLine1,
             this.OpenToolStripMenuItem,
             this.SaveAsToolStripMenuItem,
-            this.toolStripMenuItem2,
+            this.toolStripMenuItemLine2,
             this.ExitToolStripMenuItem});
             this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
             this.FileToolStripMenuItem.Size = new System.Drawing.Size(58, 21);
             this.FileToolStripMenuItem.Text = "文件(&F)";
             // 
-            // 新建NToolStripMenuItem
+            // NewToolStripMenuItem
             // 
-            this.新建NToolStripMenuItem.Name = "新建NToolStripMenuItem";
-            this.新建NToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.新建NToolStripMenuItem.Text = "新建(&N)";
+            this.NewToolStripMenuItem.Name = "NewToolStripMenuItem";
+            this.NewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.NewToolStripMenuItem.Text = "新建(&N)";
+            this.NewToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // toolStripMenuItemLine1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItemLine1.Name = "toolStripMenuItemLine1";
+            this.toolStripMenuItemLine1.Size = new System.Drawing.Size(149, 6);
             // 
             // OpenToolStripMenuItem
             // 
@@ -92,10 +93,10 @@
             this.SaveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.SaveAsToolStripMenuItem.Text = "另存为(&A)";
             // 
-            // toolStripMenuItem2
+            // toolStripMenuItemLine2
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItemLine2.Name = "toolStripMenuItemLine2";
+            this.toolStripMenuItemLine2.Size = new System.Drawing.Size(149, 6);
             // 
             // ExitToolStripMenuItem
             // 
@@ -124,6 +125,7 @@
             this.tsbPencil.Name = "tsbPencil";
             this.tsbPencil.Size = new System.Drawing.Size(36, 22);
             this.tsbPencil.Text = "画笔";
+            this.tsbPencil.Click += new System.EventHandler(this.tsbPencil_Click);
             // 
             // tsbLine
             // 
@@ -133,6 +135,7 @@
             this.tsbLine.Name = "tsbLine";
             this.tsbLine.Size = new System.Drawing.Size(36, 22);
             this.tsbLine.Text = "直线";
+            this.tsbLine.Click += new System.EventHandler(this.tsbLine_Click);
             // 
             // tsbRectangle
             // 
@@ -142,6 +145,7 @@
             this.tsbRectangle.Name = "tsbRectangle";
             this.tsbRectangle.Size = new System.Drawing.Size(36, 22);
             this.tsbRectangle.Text = "矩形";
+            this.tsbRectangle.Click += new System.EventHandler(this.tsbRectangle_Click);
             // 
             // tsbEllipse
             // 
@@ -151,6 +155,7 @@
             this.tsbEllipse.Name = "tsbEllipse";
             this.tsbEllipse.Size = new System.Drawing.Size(36, 22);
             this.tsbEllipse.Text = "椭圆";
+            this.tsbEllipse.Click += new System.EventHandler(this.tsbEllipse_Click);
             // 
             // frmDraw
             // 
@@ -162,6 +167,10 @@
             this.MainMenuStrip = this.mnuMain;
             this.Name = "frmDraw";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmDraw_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmDraw_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmDraw_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmDraw_MouseUp);
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -175,11 +184,11 @@
 
         private System.Windows.Forms.MenuStrip mnuMain;
         private System.Windows.Forms.ToolStripMenuItem FileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 新建NToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem NewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItemLine1;
         private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SaveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItemLine2;
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton tsbPencil;
